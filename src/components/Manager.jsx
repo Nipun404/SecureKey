@@ -42,6 +42,16 @@ const Manager = () => {
             localStorage.setItem("passwords", JSON.stringify([...passwordsArray, { ...form, id: uuidv4() }]))
             setform({ url: "", username: "", password: "" })
             if (button == 'Edit') {
+                toast('Password edited', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
                 setbutton('Save')
             }
         } else {
@@ -76,6 +86,16 @@ const Manager = () => {
         if (c) {
             setpasswordsArray(passwordsArray.filter(i => i.id != id))
             localStorage.setItem("passwords", JSON.stringify(passwordsArray.filter(i => i.id != id)))
+            toast('Password deleted', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
         }
     }
 
